@@ -84,4 +84,22 @@ if __name__ == "__main__":
         elif 'time' in query:
             strTime = datetime.datetime.now().strftime("%H:%M:%S")
             speak(f"Sir, the time is {strTime}")
+            
+        elif 'date' in query:
+            strDate = datetime.datetime.now().date()
+            reply = f"Sir, the date is {strDate}"
+            print(reply)
+            speak(reply)
+            
+        elif 'where is' in query:
+            query = query.replace("where is ", "")
+            reply = f"finding location of {query} on maps"
+            print(reply)
+            speak(reply)
+            webbrowser.open("https://www.google.com/maps/place/" + query)
+            
+        elif 'joke' in query:
+            joke_results = pyjokes.get_joke()   # gets a random joke
+            print(joke_results)
+            speak(joke_results)
 
